@@ -41,6 +41,11 @@ public class AspectV6Advice {
     log.info("[return] {} return={}", joinPoint.getSignature(), result);
   }
 
+  @AfterReturning(value = "hello.aop.order.aop.Pointcuts.allOrder()", returning = "result")
+  public void doReturn2(JoinPoint joinPoint, String result) {
+    log.info("[return2] {} return={}", joinPoint.getSignature(), result);
+  }
+
   @AfterThrowing(value = "hello.aop.order.aop.Pointcuts.orderAndService()", throwing = "ex")
   public void doThrowing(JoinPoint joinPoint, Exception ex) {
     log.info("[ex] {} message={}", joinPoint.getSignature(), ex.getMessage());
